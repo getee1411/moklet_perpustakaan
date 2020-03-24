@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar Petugas</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+</head>
+<body>
+    <div class="rbox">
+        <h1>Daftar</h1>
+        <form action="" method="post">
+            <div class="tbox">
+                <i class="fas fa-user-tag"></i>
+                <input class="input" type="text" name="nama" placeholder="Nama">
+            </div>
+            <div class="tbox">
+                <i class="fas fa-phone-square-alt"></i>
+                <input class="input" type="text" name="telp" placeholder="Nomor Telepon">
+            </div>
+            <div class="tbox">
+                <i class="fas fa-user"></i>
+                <input class="input" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="tbox">
+                <i class="fas fa-lock"></i>
+                <input class="input" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="input2">
+                <h5>Sebagai</h5>
+                <div class="input2bc">
+                    <div class="input2b">
+                        <input type="radio" id="1" name="level" value="petugas">
+                        <label for="1">Petugas</label>
+                    </div>
+                    <div class="input2b">
+                        <input type="radio" id="2" name="level" value="anggota">
+                        <label for="2">Anggota</label>
+                    </div>
+                </div>
+            </div>
+            <input class="sbtn" type="submit" name="simpan" value="Daftar">
+        </form>
+    </div>
+</body>
+</html>
+
+<?php
+    include 'koneksi.php';
+    if(@$_POST['simpan']){
+      $nama_petugas = @$_POST['nama_petugas'];
+      $username = @$_POST['username'];
+      $password = @$_POST['password'];
+      $pass = md5(@$password);
+      $telp = @$_POST['telp'];
+      $level = @$_POST['id_level'];
+
+      $query = mysqli_query($koneksi, "INSERT INTO `t_petugas` (nama_petugas, username, password, telp, id_level)
+                    VALUES ('$nama_petugas','$username','$password','$telp', '$level')");
+      if($query){
+        echo "<div class='zbox'>
+        Akun berhasil dibuat, silahkan <a href='login_p.php' class='alert-link'>Login</a>
+        </div>";
+      }else{
+        echo "Akun gagal dibuat";
+      }
+    }
+   ?>
