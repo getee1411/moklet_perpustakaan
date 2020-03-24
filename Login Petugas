@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Petugas</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
+</head>
+<body>
+    <div class="box2">
+        <h1>Login Petugas</h1>
+        <form action="mainP.php" method="post">
+            <div class="tbox">
+            <i class="fas fa-user"></i>
+            <input class="input" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="tbox">
+            <i class="fas fa-lock"></i>
+            <input class="input" type="text" name="password" placeholder="Password">
+            </div>
+            <input class="btn" type="submit" name="login" value="Login">
+            <a href="registerP.php" class="sbtn">Daftar</a>
+        </form>
+    </div>
+</body>
+</html>
